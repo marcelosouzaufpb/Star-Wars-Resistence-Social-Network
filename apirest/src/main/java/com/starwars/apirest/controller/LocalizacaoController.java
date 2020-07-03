@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,6 +22,11 @@ public class LocalizacaoController {
 	@GetMapping("/localizacao")
 	public List<Localizacao> listaProdutos() {
 		return localizacaoRepository.findAll();
+	}
+	
+	@GetMapping("/localizacao/{id}")
+	public Localizacao getLocalizacaoById(@PathVariable(value = "id") Integer id) {
+		return localizacaoRepository.findById(id);
 	}
 
 }
