@@ -11,6 +11,9 @@ import javax.persistence.Table;
 @Table(name = "localizacao")
 public class Localizacao {
 
+	public Localizacao() {
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")

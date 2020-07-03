@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -16,6 +15,9 @@ import javax.persistence.Table;
 public class Rebelde implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+	public Rebelde() {
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,7 +38,7 @@ public class Rebelde implements Serializable {
 	@OneToOne
 	private Localizacao localizacao;
 
-	@ManyToOne
+	@OneToOne
 	private Inventario inventario;
 
 	public Integer getId() {
