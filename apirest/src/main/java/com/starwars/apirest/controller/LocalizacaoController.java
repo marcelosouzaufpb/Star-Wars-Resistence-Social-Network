@@ -24,7 +24,7 @@ public class LocalizacaoController {
 	
 
 	@GetMapping("/localizacao")
-	public List<Localizacao> listaProdutos() {
+	public List<Localizacao> listaInventario() {
 		return localizacaoRepository.findAll();
 	}
 	
