@@ -11,6 +11,9 @@ import javax.persistence.Table;
 @Table(name = "reporte_traicao")
 public class ReporteTraicao {
 
+	public ReporteTraicao() {
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")

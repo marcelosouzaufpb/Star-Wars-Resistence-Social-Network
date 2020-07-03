@@ -11,6 +11,9 @@ import javax.persistence.Table;
 @Table(name = "inventario")
 public class Inventario {
 
+	public Inventario() {
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
