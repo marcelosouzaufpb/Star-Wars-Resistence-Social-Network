@@ -21,10 +21,9 @@ public class LocalizacaoController {
 
 	@Autowired
 	LocalizacaoRepository localizacaoRepository;
-	
 
 	@GetMapping("/localizacao")
-	public List<Localizacao> listaInventario() {
+	public List<Localizacao> listaLocalizacao() {
 		return localizacaoRepository.findAll();
 	}
 	
