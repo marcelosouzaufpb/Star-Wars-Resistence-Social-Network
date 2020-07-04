@@ -1,0 +1,77 @@
+.container-fluid {
+    width: 100vw;
+    height: 100vh;
+    padding: 3%;
+}
+
+#informacao {
+    height: 80vh;
+    padding: 5%;
+}
+
+#informacao #img {
+    height: 100%;
+}
+
+p {
+    color: black;
+    font-size: 20px;
+    font-family: 'Pathway Gothic One', sans-serif;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+#registro {
+    border: 3px solid rgb(255, 233, 25);
+    border-radius: 30px;
+    padding: 5%;
+}
+
+#registro h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10px;
+    font-weight: 900;
+}
+
+#registro h2 {
+    text-align: justify;
+    font-size: 25px;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+#registro lebel {
+    text-align: justify;
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+#registro input {
+    border: 3px solid rgb(255, 233, 25);
+}
+
+.btn {
+    width: 20%;
+    background-color: rgb(255, 233, 25);
+    border: none;
+    color: black;
+    font-size: 150%;
+    font-weight: 900;
+}
+
+.example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+}
+
+.ng-select {
+    border: 1px solid rgb(255, 233, 25);
+    border-radius: 3px;
+}

@@ -11,6 +11,9 @@ import { RegistroComponent } from './views/registro/registro.component';
 import { NegocioComponent } from './views/negocio/negocio.component';
 import { ReporteComponent } from './views/reporte/reporte.component';
 import { LocalizacaoComponent } from './views/localizacao/localizacao.component';
+import {MatSelectModule} from '@angular/material/select';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { LocalizacaoComponent } from './views/localizacao/localizacao.component'
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
