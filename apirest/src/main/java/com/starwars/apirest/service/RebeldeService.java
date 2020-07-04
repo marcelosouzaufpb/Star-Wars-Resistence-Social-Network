@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.starwars.apirest.models.Inventario;
 import com.starwars.apirest.models.Rebelde;
 import com.starwars.apirest.repository.RebeldeRepository;
 
@@ -17,7 +16,7 @@ public class RebeldeService {
 
 	@Autowired
 	private InventarioService inventarioService;
-	
+
 	@Autowired
 	private LocalizacaoService localizacaoService;
 
