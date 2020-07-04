@@ -7,12 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './views/home/home.component';
 import { GameComponent } from './views/game/game.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RegistroComponent } from './views/registro/registro.component';
+import { NegocioComponent } from './views/negocio/negocio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    GameComponent
+    GameComponent,
+    RegistroComponent,
+    NegocioComponent
   ],
   imports: [
     BrowserModule,
