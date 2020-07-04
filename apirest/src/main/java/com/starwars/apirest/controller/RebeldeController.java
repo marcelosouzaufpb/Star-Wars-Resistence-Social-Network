@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/starwars")
 @Api(value = "API REST Rebelde")
 public class RebeldeController {
 
