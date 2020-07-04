@@ -13,38 +13,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.starwars.apirest.models.Rebelde;
-import com.starwars.apirest.repository.RebeldeRepository;
+import com.starwars.apirest.service.RebeldeService;
 
 @RestController
 @RequestMapping(value = "/api")
 public class RebeldeController {
 
 	@Autowired
-	RebeldeRepository rebeldeRepository;
+	private RebeldeService service;
 
 	@GetMapping("/rebelde")
 	public List<Rebelde> listaRebelde() {
-		return rebeldeRepository.findAll();
+		return this.service.findAll();
 	}
 
 	@GetMapping("/rebelde/{id}")
 	public Rebelde getRebeldeById(@PathVariable(value = "id") Integer id) {
-		return rebeldeRepository.findById(id);
+		return this.service.findById(id);
 	}
 
 	@PostMapping("/rebelde")
 	public Rebelde salvarRebelde(@RequestBody Rebelde rebelde) {
-		return rebeldeRepository.save(rebelde);
+		return this.service.save(rebelde);
 	}
 
 	@DeleteMapping("/rebelde")
 	public void deletaRebelde(@RequestBody Rebelde rebelde) {
-		rebeldeRepository.delete(rebelde);
+		this.service.delete(rebelde);
 	}
 
 	@PutMapping("/rebelde")
 	public Rebelde atualizaRebelde(@RequestBody Rebelde rebelde) {
-		return rebeldeRepository.save(rebelde);
+		return this.service.update(rebelde);
 	}
 
 }
