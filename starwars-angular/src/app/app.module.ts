@@ -9,6 +9,8 @@ import { GameComponent } from './views/game/game.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistroComponent } from './views/registro/registro.component';
 import { NegocioComponent } from './views/negocio/negocio.component';
+import { ReporteComponent } from './views/reporte/reporte.component';
+import { LocalizacaoComponent } from './views/localizacao/localizacao.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { NegocioComponent } from './views/negocio/negocio.component';
     HomeComponent,
     GameComponent,
     RegistroComponent,
-    NegocioComponent
+    NegocioComponent,
+    ReporteComponent,
+    LocalizacaoComponent
   ],
   imports: [
     BrowserModule,
