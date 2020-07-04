@@ -1,0 +1,57 @@
+.container-fluid {
+    width: 100vw;
+    height: 100vh;
+    background: url("../../../assets/imagens/05.png");
+}
+
+.row {
+    height: 50%;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+.col-lg-5 {
+    cursor: pointer;
+}
+.col-lg-5 h1{
+    margin-top: 25%;
+    color: #feda4a;
+    font-size: 300%;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    margin-top: 70%;
+}
+
+#registrat-rebelde {
+    border: 5px solid rgb(255, 233, 25);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+#negociar-itens {
+    border: 5px solid rgb(255, 233, 25);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+#reportar-localizacao {
+    border: 5px solid rgb(255, 233, 25);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+#reportar-traidor {
+    border: 5px solid rgb(255, 233, 25);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+}
