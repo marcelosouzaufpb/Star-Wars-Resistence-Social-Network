@@ -13,37 +13,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.starwars.apirest.models.ReporteTraicao;
-import com.starwars.apirest.repository.ReporteTraicaoRepository;
+import com.starwars.apirest.service.ReporteTraicaoService;
 
 @RestController
 @RequestMapping(value = "/api")
 public class ReporteTraicaoController {
 
 	@Autowired
-	ReporteTraicaoRepository reporteTraicaoRepository;
+	private ReporteTraicaoService service;
 
 	@GetMapping("/reporteTraicao")
 	public List<ReporteTraicao> listaReporteTraicao() {
-		return reporteTraicaoRepository.findAll();
+		return this.service.findAll();
 	}
 
 	@GetMapping("/reporteTraicao/{id}")
 	public ReporteTraicao getReporteTraicaoById(@PathVariable(value = "id") Integer id) {
-		return reporteTraicaoRepository.findById(id);
+		return this.service.findById(id);
 	}
 
 	@PostMapping("/reporteTraicao")
 	public ReporteTraicao salvarReporteTraicao(@RequestBody ReporteTraicao reporteTraicao) {
-		return reporteTraicaoRepository.save(reporteTraicao);
+		return this.service.save(reporteTraicao);
 	}
 
 	@DeleteMapping("/reporteTraicao")
 	public void deletaReporteTraicao(@RequestBody ReporteTraicao reporteTraicao) {
-		reporteTraicaoRepository.delete(reporteTraicao);
+		this.service.delete(reporteTraicao);
 	}
 
 	@PutMapping("/reporteTraicao")
 	public ReporteTraicao atualizaReporteTraicao(@RequestBody ReporteTraicao reporteTraicao) {
-		return reporteTraicaoRepository.save(reporteTraicao);
+		return this.service.update(reporteTraicao);
 	}
 }

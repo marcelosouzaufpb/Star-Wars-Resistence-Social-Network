@@ -13,38 +13,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.starwars.apirest.models.Inventario;
-import com.starwars.apirest.repository.InventarioRepository;
+import com.starwars.apirest.service.InventarioService;
 
 @RestController
 @RequestMapping(value = "/api")
 public class InventarioController {
 
 	@Autowired
-	InventarioRepository inventarioRepository;
+	private InventarioService service;
 
 	@GetMapping("/inventario")
 	public List<Inventario> listaInventario() {
-		return inventarioRepository.findAll();
+		return this.service.findAll();
 	}
 
 	@GetMapping("/inventario/{id}")
 	public Inventario getInventarioById(@PathVariable(value = "id") Integer id) {
-		return inventarioRepository.findById(id);
+		return this.service.findById(id);
 	}
 
 	@PostMapping("/inventario")
 	public Inventario salvarInventario(@RequestBody Inventario inventario) {
-		return inventarioRepository.save(inventario);
+		return this.service.save(inventario);
 	}
 
 	@DeleteMapping("/inventario")
 	public void deletaInventario(@RequestBody Inventario inventario) {
-		inventarioRepository.delete(inventario);
+		this.service.delete(inventario);
 	}
 
 	@PutMapping("/inventario")
 	public Inventario atualizaInventario(@RequestBody Inventario inventario) {
-		return inventarioRepository.save(inventario);
+		return this.service.update(inventario);
 	}
 
 }
