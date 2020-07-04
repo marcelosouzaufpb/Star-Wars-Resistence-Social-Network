@@ -1,1 +1,65 @@
-<p>registro works!</p>
+<div class="container-fluid">
+    <div class="row p-0 mg-0">
+        <div class="col-lg-6" id="registro">
+            <h1>Registro</h1>
+            <form>
+                <div class="form-group">
+                    <h2>Dados Pessoais</h2>
+                    <div class="row">
+                        <div class="col">
+                            <label for="nomeRebelde">Nome</label>
+                            <input type="text" class="form-control" id="nomeRebelde" aria-describedby="nome">
+                        </div>
+                        <div class="col">
+                            <label for="idadeRebelde">Idade</label>
+                            <input type="number" class="form-control" id="idadeRebelde" aria-describedby="idade">
+                        </div>
+                        <div class="col">
+                            <label for="generoRebelde">Genero</label>
+                            <input type="text" class="form-control" id="generoRebelde" aria-describedby="genero">
+                        </div>
+                    </div>
+                    <h2>Localização</h2>
+                    <div class="row">
+                        <div class="col">
+                            <label for="latitude">Latitude</label>
+                            <input type="number" class="form-control" id="latitude" aria-describedby="latitude">
+                        </div>
+                        <div class="col">
+                            <label for="longitude">Longetude</label>
+                            <input type="number" class="form-control" id="longitude" aria-describedby="longitude">
+                        </div>
+                        <div class="col">
+                            <label for="nomeLocalizacao">Localizacao</label>
+                            <input type="text" class="form-control" id="nomeLocalizacao" aria-describedby="nome">
+                        </div>
+                    </div>
+                    <h2>Inventario</h2>
+                    <div class="row">
+                        <div class="col">
+                            <label for="item">Ttem</label>
+                            <input type="number" class="form-control" id="item" aria-describedby="item">
+                        </div>
+                        <div class="col">
+                            <label for="ponto">Pontos</label>
+                            <input type="number" class="form-control" id="ponto" aria-describedby="ponto">
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+        <div class="col-lg-6" id="informacao">
+            <div class="row" id="img">
+                <img src="../../../assets/imagens/02.jpg" alt="logo">
+            </div>
+            <div class="row" id="txt">
+                <p>Olá eu sou Han Solo, líder da aliança rebelde, soube que você gostaria de se juntar a nós contra o
+                    império, mas para isso precisamos antes fazer seu cadastro em nosso sistema.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-4">
+        <a class="btn btn-primary" href="#" role="button" [routerLink]="['']">Retorno</a>
+    </div>
+</div>
