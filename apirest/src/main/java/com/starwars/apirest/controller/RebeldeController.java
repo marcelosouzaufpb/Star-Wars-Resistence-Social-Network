@@ -46,9 +46,9 @@ public class RebeldeController {
 		return this.service.save(rebelde);
 	}
 
-	@DeleteMapping("/rebelde")
+	@DeleteMapping("/rebelde/{eTraidor}")
 	@ApiOperation(value = "Deleta um Rebelde no DB")
-	public void deletaRebelde(@RequestBody Rebelde rebelde) {
+	public void deletaRebelde(@PathVariable(value = "eTraidor") Rebelde rebelde) {
 		this.service.delete(rebelde);
 	}
 
@@ -56,6 +56,12 @@ public class RebeldeController {
 	@ApiOperation(value = "Atualiza um Rebelde no DB")
 	public Rebelde atualizaRebelde(@RequestBody Rebelde rebelde) {
 		return this.service.update(rebelde);
+	}
+
+	@GetMapping("/traidor")
+	@ApiOperation(value = "Retorna uma lista com todos rebeldes que sao traidores")
+	public List<Rebelde> getRebeldeByTraidor(@RequestBody Boolean eTraidor) {
+		return this.service.getRebeldeByTraicao(eTraidor);
 	}
 
 }
