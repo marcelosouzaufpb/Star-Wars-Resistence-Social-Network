@@ -9,45 +9,79 @@
                     <div class="row mb-2">
                         <div class="col">
                             <label for="latitude">Rebelde 1</label>
-                            <ng-select [items]="countries" bindLabel="name" bindValue="id" placeholder="Select country"
-                                (change)="onChange($event)">
+                            <ng-select [items]="rebeldes" bindLabel="nome" bindValue="id" placeholder="Select country"
+                                (change)="onChangeRebeldeOne($event)">
                             </ng-select>
                         </div>
                         <div class="col">
                             <label for="latitude">Rebelde 2</label>
-                            <ng-select [items]="countries" bindLabel="name" bindValue="id" placeholder="Select country"
-                                (change)="onChange($event)">
+                            <ng-select [items]="rebeldes" bindLabel="nome" bindValue="id" placeholder="Select country"
+                                (change)="onChangeRebeldeTwo($event)">
                             </ng-select>
                         </div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col">
+                        <div class="col" *ngIf="this.rebeldeOne.inventario != null">
                             <label for="latitude">Item 1</label>
-                            <ng-select [items]="countries" bindLabel="name" bindValue="id" placeholder="Select country"
-                                (change)="onChange($event)">
+                            <ng-select [items]="this.inventarioOne" bindLabel="item" bindValue="id"
+                                placeholder="Select country" (change)="onChangeOne($event)">
                             </ng-select>
                         </div>
-                        <div class="col">
+                        <div class="col" *ngIf="this.rebeldeTwo.inventario != null">
                             <label for="latitude">Item 2</label>
-                            <ng-select [items]="countries" bindLabel="name" bindValue="id" placeholder="Select country"
-                                (change)="onChange($event)">
+                            <ng-select [items]="this.inventarioTwo" bindLabel="item" bindValue="id"
+                                placeholder="Select country" (change)="onChangetwo($event)">
                             </ng-select>
                         </div>
                     </div>
                 </div>
+                <label for="latitude">Pontos pata troca</label>
+
                 <div class="row">
                     <div class="col">
-                        <label for="latitude">Pontos 1</label>
+                        <label for="latitude">{{this.escolharOne.pontos}}</label>
                     </div>
                     <div class="col">
-                        <label for="latitude">Ponos 2</label>
+                        <label for="latitude">{{this.escolharTwo.pontos}}</label>
                     </div>
                 </div>
-                <div class="row pt-4">
+
+                <div class="row" *ngFor="let item of this.carrinhoOne">
+                    <div class="col m-2" >
+                        <label for="latitude">{{item.item}} - {{this.rebeldeOne.nome}}</label>
+                    </div>
+                    <div class="col m-2" *ngFor="let item of this.carrinhoOne">
+                        <a class="btn btn-primary btn2" (click)="this.removerCarrinhoOne(item)">Remover</a>
+                    </div>
+                </div>
+
+                <div class="row" *ngFor="let item of this.carrinhoTWo">
+                    <div class="col m-2" >
+                        <label for="latitude">{{item.item}} - {{this.rebeldeTwo.nome}}</label>
+                    </div>
+                    <div class="col m-2" *ngFor="let item of this.carrinhoOne">
+                        <a class="btn btn-primary btn2" (click)="this.removerCarrinhoTwo(item)">Remover</a>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col">
-                        <a class="btn btn-primary" href="#" role="button" [routerLink]="['']">Trocar</a>
+                        <a class="btn btn-primary btn2" (click)="this.addCarrinhoOne()">add carrinho 1</a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-primary btn2" (click)="this.addCarrinhoTwo()">add carrinho 2</a>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="latitude">Pontos total - {{this.pontosOne}}</label>
+                    </div>
+                    <div class="col">
+                        <label for="latitude">Pontos total - {{this.pontosTwo}}</label>
+                    </div>
+                </div>
+
             </form>
         </div>
         <div class="col-lg-6" id="informacao">
@@ -57,6 +91,9 @@
         </div>
     </div>
     <div class="row pt-4">
-        <a class="btn btn-primary" href="#" role="button" [routerLink]="['']">Retorno</a>
+        <div class="col">
+            <a class="btn btn-primary mr-5 ml-4" role="button" [routerLink]="['']">Retorno</a>
+            <a class="btn btn-primary" (click)="this.trocar()">Trocar</a>
+        </div>
     </div>
 </div>

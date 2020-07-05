@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgOption } from '@ng-select/ng-select';
+import { Rebelde } from 'src/app/shared/model/rebelde.model';
+import { RebeldeService } from 'src/app/shared/service/rebelde.service';
+import { Localizacao } from 'src/app/shared/model/localizacao.model';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -9,21 +13,43 @@ import { NgOption } from '@ng-select/ng-select';
 })
 export class LocalizacaoComponent implements OnInit {
 
-  countries: NgOption[] = [
-    {id: 10, name: 'POLAND'},
-    {id: 20, name: 'UK'},
-    {id: 30, name: 'GERMANY'},
-    {id: 40, name: 'NORWAY'},
-    {id: 50, name: 'FINLAND'}
-  ];
+  rebeldes: Rebelde;
+  rebelde: Rebelde;
+  localizacao: Localizacao;
 
-  constructor() { }
+  constructor(public rebeldeService: RebeldeService) {
+    this.localizacao = new Localizacao();
+    this.rebelde = new Rebelde();
+  }
 
   ngOnInit(): void {
+    this.getAllRebeldes();
+  }
+
+  getAllRebeldes(): void {
+    this.rebeldeService.get().subscribe((result: Rebelde) => {
+      this.rebeldes = result;
+    });
   }
 
   onChange = ($event: any): void => {
-    console.log($event);
-    console.log(`SELECTION CHANGED INTO ${$event.name || ''}`);
+    this.rebelde = $event;
+  }
+
+  validaLocalizacao(localizacao: Localizacao): boolean {
+    if ((localizacao.latitude && localizacao.longitude && localizacao.nome) === null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  atualizar(frm: FormGroup): void {
+    if (this.validaLocalizacao(this.localizacao)) {
+      this.rebelde.localizacao = this.localizacao;
+      this.rebeldeService.put(this.rebelde).subscribe(result => {
+        frm.reset();
+      });
+    }
   }
 }

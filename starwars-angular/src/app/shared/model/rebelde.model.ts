@@ -6,6 +6,7 @@ export class Rebelde {
     nome: string;
     idade: number;
     genero: string;
+    eTraidor: boolean;
     localizacao: Localizacao;
-    iventario: Inventario;
+    inventario: Inventario[];
 }

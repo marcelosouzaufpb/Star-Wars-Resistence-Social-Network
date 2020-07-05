@@ -55,3 +55,18 @@ img {
     border-bottom-right-radius: 30px;
     border-top-right-radius: 30px;
 }
+
+.col-lg-2 h1 {
+    cursor: pointer;
+    color: #feda4a;
+    font-size: 200%;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+.btn {
+    border: none;
+    background: none;
+    margin-top: 20%;
+}

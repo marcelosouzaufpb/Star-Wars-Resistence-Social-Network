@@ -1,10 +1,13 @@
 package com.starwars.apirest.service;
 
+import java.io.Console;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.starwars.apirest.models.Inventario;
 import com.starwars.apirest.models.Rebelde;
 import com.starwars.apirest.repository.RebeldeRepository;
 
@@ -29,8 +32,17 @@ public class RebeldeService {
 	}
 
 	public Rebelde save(Rebelde rebelde) {
-		rebelde.setInventario(this.inventarioService.save(rebelde.getInventario()));
-		rebelde.setLocalizacao(this.localizacaoService.save(rebelde.getLocalizacao()));
+		if (rebelde.getInventario() != null) {
+			ArrayList<Inventario> inventarios = new ArrayList<Inventario>();
+			for (Inventario i : rebelde.getInventario()) {
+				this.inventarioService.save(i);
+				inventarios.add(i);
+			}
+			rebelde.setInventario(inventarios);
+		}
+		if (rebelde.getLocalizacao() != null) {
+			rebelde.setLocalizacao(this.localizacaoService.save(rebelde.getLocalizacao()));
+		}
 		return this.repository.save(rebelde);
 	}
 
@@ -39,6 +51,6 @@ public class RebeldeService {
 	}
 
 	public Rebelde update(Rebelde rebelde) {
-		return this.repository.save(rebelde);
+		return this.save(rebelde);
 	}
 }

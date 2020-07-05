@@ -1,5 +1,6 @@
 package com.starwars.apirest.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping(value = "/starwarss")
+@RequestMapping(value = "/starwars")
 @Api(value = "API REST Reporte Traicao")
 public class ReporteTraicaoController {
 
@@ -57,4 +58,5 @@ public class ReporteTraicaoController {
 	public ReporteTraicao atualizaReporteTraicao(@RequestBody ReporteTraicao reporteTraicao) {
 		return this.service.update(reporteTraicao);
 	}
+
 }

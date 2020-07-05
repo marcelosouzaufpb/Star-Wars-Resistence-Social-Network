@@ -2,56 +2,91 @@
     <div class="row p-0 mg-0">
         <div class="col-lg-6" id="registro">
             <h1>Registro</h1>
-            <form>
+            <form method="post" #frm="ngForm" (ngSubmit)="salvar(frm)">
                 <div class="form-group">
                     <h2>Dados Pessoais</h2>
                     <div class="row">
                         <div class="col">
                             <label for="nomeRebelde">Nome</label>
-                            <input type="text" class="form-control" id="nomeRebelde" aria-describedby="nome">
+                            <input class="form-control" id="nomeRebelde" placeholder="Qual seu nome?"
+                                aria-describedby="nomeRebelde" [(ngModel)]="rebelde.nome" name="nomeRebelde" required>
                         </div>
                         <div class="col">
                             <label for="idadeRebelde">Idade</label>
-                            <input type="number" class="form-control" id="idadeRebelde" aria-describedby="idade">
+                            <input type="number" class="form-control" id="idadeRebelde" aria-describedby="idade"
+                                placeholder="Qual sua idade?" [(ngModel)]="rebelde.idade" name="idadeRebelde" required>
                         </div>
                         <div class="col">
                             <label for="generoRebelde">Genero</label>
-                            <input type="text" class="form-control" id="generoRebelde" aria-describedby="genero">
+                            <input type="text" class="form-control" id="generoRebelde" aria-describedby="genero"
+                                placeholder="Qual seu genero?" [(ngModel)]="rebelde.genero" name="generoRebelde"
+                                required>
                         </div>
                     </div>
                     <h2>Localização</h2>
                     <div class="row">
                         <div class="col">
                             <label for="latitude">Latitude</label>
-                            <input type="number" class="form-control" id="latitude" aria-describedby="latitude">
+                            <input type="text" class="form-control" id="latitude" aria-describedby="latitude"
+                                placeholder="Qual a latitude de sua Localização?" [(ngModel)]="localizacao.latitude"
+                                name="latitude" required>
                         </div>
                         <div class="col">
                             <label for="longitude">Longetude</label>
-                            <input type="number" class="form-control" id="longitude" aria-describedby="longitude">
+                            <input class="form-control" id="longitude" aria-describedby="longitude"
+                                placeholder="Qual a longitude de sua localização?" [(ngModel)]="localizacao.longitude"
+                                name="longitude" required>
                         </div>
                         <div class="col">
                             <label for="nomeLocalizacao">Localizacao</label>
-                            <input type="text" class="form-control" id="nomeLocalizacao" aria-describedby="nome">
+                            <input type="text" class="form-control" id="nomeLocalizacao"
+                                aria-describedby="nomeLocalizacao" [(ngModel)]="localizacao.nome"
+                                placeholder="Qual o nome de sua localização?" name="nomeLocalizacao" required>
                         </div>
                     </div>
                     <h2>Inventario</h2>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Item no Inventario</th>
+                                <th scope="col">Pontos do item</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let iventario of inventarios">
+                            <tr>
+                                <td>{{iventario.item}}</td>
+                                <td>{{iventario.pontos}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <div class="row">
                         <div class="col">
-                            <label for="item">Ttem</label>
-                            <input type="number" class="form-control" id="item" aria-describedby="item">
+                            <label for="item">Item</label>
+                            <input type="text" class="form-control" id="item"
+                            aria-describedby="item" [(ngModel)]="inventario.item"
+                            placeholder="Qual o item de seu Inventario?" name="item">
                         </div>
                         <div class="col">
                             <label for="ponto">Pontos</label>
-                            <input type="number" class="form-control" id="ponto" aria-describedby="ponto">
+                            <input type="number" class="form-control" id="ponto" aria-describedby="pontos"
+                                placeholder="Digite os pontos do item?" name="pontosIventario"
+                                [(ngModel)]="inventario.pontos">
                         </div>
                     </div>
-                    <div class="row pt-4">
+                    <div class="row mt-3">
+                        <div class="col text-right">
+                            <a class="btn btn-primary btn-sm"
+                            (click)="addItemIventario()">Add</a>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
                         <div class="col">
-                            <a class="btn btn-primary" href="#" role="button" [routerLink]="['']">Registro</a>
+                            <button class="btn btn-primary" type="submit"
+                                [disabled]="frm.invalid">Registro</button>
                         </div>
                     </div>
                 </div>
-                
+
             </form>
         </div>
         <div class="col-lg-6" id="informacao">
