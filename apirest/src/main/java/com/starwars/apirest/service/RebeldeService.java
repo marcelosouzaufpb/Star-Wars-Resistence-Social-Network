@@ -1,6 +1,5 @@
 package com.starwars.apirest.service;
 
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,5 +51,9 @@ public class RebeldeService {
 
 	public Rebelde update(Rebelde rebelde) {
 		return this.save(rebelde);
+	}
+	
+	public List<Rebelde> getRebeldeByTraicao(boolean eTraidor) {
+		return this.repository.findRebeldeByTraicao(eTraidor);
 	}
 }

@@ -1,6 +1,5 @@
 package com.starwars.apirest.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.starwars.apirest.models.Rebelde;
 import com.starwars.apirest.models.ReporteTraicao;
 import com.starwars.apirest.service.ReporteTraicaoService;
 
@@ -59,4 +59,9 @@ public class ReporteTraicaoController {
 		return this.service.update(reporteTraicao);
 	}
 
+	@GetMapping("/reportados")
+	@ApiOperation(value = "Retorna uma lista com os reportes")
+	public List<Rebelde> getReportados() {
+		return this.service.getReportados();
+	}
 }

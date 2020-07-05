@@ -25,13 +25,13 @@ public class Rebelde implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "nome")
+	@Column(name = "nome", length = 50, unique = true)
 	private String nome;
 
-	@Column(name = "idade")
+	@Column(name = "idade", length = 1000)
 	private Integer idade;
 
-	@Column(name = "genero")
+	@Column(name = "genero", length = 25)
 	private String genero;
 
 	@Column(name = "e_traidor")
