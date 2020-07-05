@@ -1,13 +1,14 @@
 package com.starwars.apirest.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -39,8 +40,8 @@ public class Rebelde implements Serializable {
 	@OneToOne
 	private Localizacao localizacao;
 
-	@ManyToOne
-	private Inventario inventario;
+	@OneToMany
+	private List<Inventario> inventario;
 
 	public Long getId() {
 		return id;
@@ -82,12 +83,24 @@ public class Rebelde implements Serializable {
 		this.localizacao = localizacao;
 	}
 
-	public Inventario getInventario() {
+	public boolean iseTraidor() {
+		return eTraidor;
+	}
+
+	public void seteTraidor(boolean eTraidor) {
+		this.eTraidor = eTraidor;
+	}
+
+	public List<Inventario> getInventario() {
 		return inventario;
 	}
 
-	public void setInventario(Inventario inventario) {
+	public void setInventario(List<Inventario> inventario) {
 		this.inventario = inventario;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

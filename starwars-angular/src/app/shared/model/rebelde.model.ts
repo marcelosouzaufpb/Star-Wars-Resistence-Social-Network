@@ -7,5 +7,5 @@ export class Rebelde {
     idade: number;
     genero: string;
     localizacao: Localizacao;
-    iventario: Inventario;
+    inventario: Inventario[];
 }

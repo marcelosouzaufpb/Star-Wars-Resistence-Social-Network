@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgOption } from '@ng-select/ng-select';
+import { RebeldeService } from '../../shared/service/rebelde.service';
+import { Rebelde } from 'src/app/shared/model/rebelde.model';
 
 @Component({
   selector: 'app-negocio',
@@ -7,16 +9,13 @@ import { NgOption } from '@ng-select/ng-select';
   styleUrls: ['./negocio.component.css']
 })
 export class NegocioComponent implements OnInit {
+  rebeldes: Rebelde;
 
-  countries: NgOption[] = [
-    {id: 10, name: 'POLAND'},
-    {id: 20, name: 'UK'},
-    {id: 30, name: 'GERMANY'},
-    {id: 40, name: 'NORWAY'},
-    {id: 50, name: 'FINLAND'}
-  ];
-
-  constructor() { }
+  constructor(public rebeldeService: RebeldeService) { 
+    this.rebeldeService.get().subscribe((result: Rebelde) => {
+      this.rebeldes = result;
+    });
+  }
 
   ngOnInit(): void {
   }

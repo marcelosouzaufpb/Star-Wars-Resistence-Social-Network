@@ -2,14 +2,14 @@
     <div class="row p-0 mg-0">
         <div class="col-lg-6" id="registro">
             <h1>Registro</h1>
-            <form>
+            <form method="put" #frm="ngForm" (ngSubmit)="atualizar(frm)">
                 <div class="form-group">
                     <h2>Localização</h2>
                     <p>Informe a nova localização?</p>
                     <div class="row mb-2">
                         <div class="col">
                             <label for="latitude">Rebelde</label>
-                            <ng-select [items]="countries" bindLabel="name" bindValue="id" placeholder="Select country"
+                            <ng-select [items]="rebeldes" bindLabel="nome" bindValue="id" placeholder="Select country"
                                 (change)="onChange($event)">
                             </ng-select>
                         </div>
@@ -17,20 +17,27 @@
                     <div class="row">
                         <div class="col">
                             <label for="latitude">Latitude</label>
-                            <input type="number" class="form-control" id="latitude" aria-describedby="latitude">
+                            <input type="text" class="form-control" id="latitude" aria-describedby="latitude"
+                                placeholder="Qual a latitude de sua Localização?" [(ngModel)]="localizacao.latitude"
+                                name="latitude" required>
                         </div>
                         <div class="col">
                             <label for="longitude">Longetude</label>
-                            <input type="number" class="form-control" id="longitude" aria-describedby="longitude">
+                            <input class="form-control" id="longitude" aria-describedby="longitude"
+                                placeholder="Qual a longitude de sua localização?" [(ngModel)]="localizacao.longitude"
+                                name="longitude" required>
                         </div>
                         <div class="col">
                             <label for="nomeLocalizacao">Localizacao</label>
-                            <input type="text" class="form-control" id="nomeLocalizacao" aria-describedby="nome">
+                            <input type="text" class="form-control" id="nomeLocalizacao"
+                                aria-describedby="nomeLocalizacao" [(ngModel)]="localizacao.nome"
+                                placeholder="Qual o nome de sua localização?" name="nomeLocalizacao" required>
                         </div>
                     </div>
-                    <div class="row pt-4">
+                    <div class="row mt-4">
                         <div class="col">
-                            <a class="btn btn-primary" href="#" role="button" [routerLink]="['']">Atualizar</a>
+                            <button class="btn btn-primary btn-sm" type="submit"
+                            [disabled]="frm.invalid">Atualizar</button>
                         </div>
                     </div>
                 </div>
