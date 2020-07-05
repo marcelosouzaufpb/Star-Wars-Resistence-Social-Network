@@ -1,1 +1,41 @@
-<p>reporte works!</p>
+<div class="container-fluid">
+    <div class="row p-0 mg-0">
+        <div class="col-lg-6" id="registro">
+            <h1>Registro</h1>
+            <form>
+                <div class="form-group">
+                    <h2>Reporte Traidor</h2>
+                    <p>Informe o traidor e quem estar reportando?</p>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <label for="latitude">Traidor</label>
+                            <ng-select [items]="countries" bindLabel="name" bindValue="id" placeholder="Select country"
+                                (change)="onChange($event)">
+                            </ng-select>
+                        </div>
+                        <div class="col">
+                            <label for="latitude">Rebelde</label>
+                            <ng-select [items]="countries" bindLabel="name" bindValue="id" placeholder="Select country"
+                                (change)="onChange($event)">
+                            </ng-select>
+                        </div>
+                    </div>
+                    <div class="row pt-4">
+                        <div class="col">
+                            <a class="btn btn-primary" href="#" role="button" [routerLink]="['']">Reportar</a>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-lg-6" id="informacao">
+            <div class="row" id="img">
+                <img src="../../../assets/imagens/06.jpg" alt="logo">
+            </div>
+        </div>
+    </div>
+    <div class="row pt-4">
+        <a class="btn btn-primary" href="#" role="button" [routerLink]="['']">Retorno</a>
+    </div>
+</div>
