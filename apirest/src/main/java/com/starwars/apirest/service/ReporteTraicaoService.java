@@ -33,4 +33,5 @@ public class ReporteTraicaoService {
 	public ReporteTraicao update(ReporteTraicao reporteTraicao) {
 		return this.repository.save(reporteTraicao);
 	}
+	
 }

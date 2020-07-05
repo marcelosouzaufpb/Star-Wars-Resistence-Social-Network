@@ -1,4 +1,6 @@
+import { Rebelde } from './rebelde.model';
+
 export class ReporteTraicao {
-    traidor: string;
-    autor: string;
+    traidor: Rebelde;
+    autor: Rebelde;
 }

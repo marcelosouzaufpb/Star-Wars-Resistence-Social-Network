@@ -2,27 +2,28 @@
     <div class="row p-0 mg-0">
         <div class="col-lg-6" id="registro">
             <h1>Registro</h1>
-            <form>
+            <form method="post" #frm="ngForm" (ngSubmit)="reporteTraidor(frm)">
                 <div class="form-group">
                     <h2>Reporte Traidor</h2>
                     <p>Informe o traidor e quem estar reportando?</p>
                     <div class="row mb-2">
                         <div class="col">
                             <label for="latitude">Traidor</label>
-                            <ng-select [items]="countries" bindLabel="name" bindValue="id" placeholder="Select country"
-                                (change)="onChange($event)">
-                            </ng-select>
+                            <ng-select [items]="rebeldes" bindLabel="nome" bindValue="id" placeholder="Selecione o Traidor!"
+                            (change)="onChangeTraidor($event)">
+                        </ng-select>
                         </div>
                         <div class="col">
                             <label for="latitude">Rebelde</label>
-                            <ng-select [items]="countries" bindLabel="name" bindValue="id" placeholder="Select country"
-                                (change)="onChange($event)">
+                            <ng-select [items]="rebeldes" bindLabel="nome" bindValue="id" placeholder="Selecione o Rebelde!"
+                                (change)="onChangeRebelde($event)">
                             </ng-select>
                         </div>
                     </div>
                     <div class="row pt-4">
                         <div class="col">
-                            <a class="btn btn-primary" href="#" role="button" [routerLink]="['']">Reportar</a>
+                            <button class="btn btn-primary" type="submit"
+                            [disabled]="frm.invalid">Reporte</button>
                         </div>
                     </div>
                 </div>
@@ -32,6 +33,9 @@
         <div class="col-lg-6" id="informacao">
             <div class="row" id="img">
                 <img src="../../../assets/imagens/06.jpg" alt="logo">
+            </div>
+            <div class="row" id="txt">
+                <p>Eu sou Darth Vader. Você não conhece o poder do lado sombrio. ...</p>
             </div>
         </div>
     </div>

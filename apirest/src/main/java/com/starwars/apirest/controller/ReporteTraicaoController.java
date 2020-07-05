@@ -1,5 +1,6 @@
 package com.starwars.apirest.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,4 +58,5 @@ public class ReporteTraicaoController {
 	public ReporteTraicao atualizaReporteTraicao(@RequestBody ReporteTraicao reporteTraicao) {
 		return this.service.update(reporteTraicao);
 	}
+
 }

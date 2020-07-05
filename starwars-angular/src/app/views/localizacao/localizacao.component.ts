@@ -17,7 +17,7 @@ export class LocalizacaoComponent implements OnInit {
   rebelde: Rebelde;
   localizacao: Localizacao;
 
-  constructor(public rebeldeService: RebeldeService) { 
+  constructor(public rebeldeService: RebeldeService) {
     this.localizacao = new Localizacao();
     this.rebelde = new Rebelde();
   }
@@ -36,14 +36,20 @@ export class LocalizacaoComponent implements OnInit {
     this.rebelde = $event;
   }
 
-  atualizar(frm: FormGroup): void {
-    this.rebelde.localizacao = this.localizacao;
-    this.rebeldeService.put(this.rebelde).subscribe(result => {
-      console.log(result)
-      frm.reset();
-    });
-
+  validaLocalizacao(localizacao: Localizacao): boolean {
+    if ((localizacao.latitude && localizacao.longitude && localizacao.nome) === null) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
- 
+  atualizar(frm: FormGroup): void {
+    if (this.validaLocalizacao(this.localizacao)) {
+      this.rebelde.localizacao = this.localizacao;
+      this.rebeldeService.put(this.rebelde).subscribe(result => {
+        frm.reset();
+      });
+    }
+  }
 }

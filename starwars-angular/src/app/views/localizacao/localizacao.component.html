@@ -9,7 +9,7 @@
                     <div class="row mb-2">
                         <div class="col">
                             <label for="latitude">Rebelde</label>
-                            <ng-select [items]="rebeldes" bindLabel="nome" bindValue="id" placeholder="Select country"
+                            <ng-select [items]="rebeldes" bindLabel="nome" bindValue="id" placeholder="Selecione o Rebelde"
                                 (change)="onChange($event)">
                             </ng-select>
                         </div>
@@ -18,20 +18,20 @@
                         <div class="col">
                             <label for="latitude">Latitude</label>
                             <input type="text" class="form-control" id="latitude" aria-describedby="latitude"
-                                placeholder="Qual a latitude de sua Localização?" [(ngModel)]="localizacao.latitude"
+                                placeholder="Informe a latitude?" [(ngModel)]="localizacao.latitude"
                                 name="latitude" required>
                         </div>
                         <div class="col">
                             <label for="longitude">Longetude</label>
                             <input class="form-control" id="longitude" aria-describedby="longitude"
-                                placeholder="Qual a longitude de sua localização?" [(ngModel)]="localizacao.longitude"
+                                placeholder="Informe a longitude?" [(ngModel)]="localizacao.longitude"
                                 name="longitude" required>
                         </div>
                         <div class="col">
                             <label for="nomeLocalizacao">Localizacao</label>
                             <input type="text" class="form-control" id="nomeLocalizacao"
                                 aria-describedby="nomeLocalizacao" [(ngModel)]="localizacao.nome"
-                                placeholder="Qual o nome de sua localização?" name="nomeLocalizacao" required>
+                                placeholder="Informe o nome?" name="nomeLocalizacao" required>
                         </div>
                     </div>
                     <div class="row mt-4">
