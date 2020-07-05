@@ -1,22 +1,23 @@
 <div class="container-fluid">
     <div class="row pl-4 pt-4 pb-3">
-        <div class="col-lg-5" id="registrat-rebelde">
+        <div class="col-lg-5" id="registrat-rebelde" [routerLink]="['registro']">
             <h1>Registrar Rebelde</h1>
         </div>
         <div class="col-lg-2 p-0 m-0">
-            <img src="../../../assets/imagens/01.png" alt="logo"/>
+            <img src="../../../assets/imagens/01.png" alt="logo" />
         </div>
-        <div class="col-lg-5" id="negociar-itens">
+        <div class="col-lg-5" id="negociar-itens" [routerLink]="['negocio']">
             <h1>Negociar itens</h1>
         </div>
     </div>
-    <div class="row pl-4 pb-4 pt-3" >
-        <div class="col-lg-5" id="reportar-localizacao">
+    <div class="row pl-4 pb-4 pt-3">
+        <div class="col-lg-5" id="reportar-localizacao" [routerLink]="['localizacao']">
             <h1>Reportar localizacao</h1>
         </div>
         <div class="col-lg-2 p-0 m-0"></div>
-        <div class="col-lg-5" id="reportar-traidor">
+        <div class="col-lg-5" id="reportar-traidor" [routerLink]="['reporte']">
             <h1>Reportar Traidor</h1>
         </div>
     </div>
+    <router-outlet></router-outlet>
 </div>

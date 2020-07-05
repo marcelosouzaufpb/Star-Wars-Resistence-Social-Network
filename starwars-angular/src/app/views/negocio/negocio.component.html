@@ -1,1 +1,62 @@
-<p>negocio works!</p>
+<div class="container-fluid">
+    <div class="row p-0 mg-0">
+        <div class="col-lg-6" id="registro">
+            <h1>Registro</h1>
+            <form>
+                <div class="form-group">
+                    <h2>Reporte Traidor</h2>
+                    <p>Informe o traidor e quem estar reportando?</p>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <label for="latitude">Rebelde 1</label>
+                            <ng-select [items]="countries" bindLabel="name" bindValue="id" placeholder="Select country"
+                                (change)="onChange($event)">
+                            </ng-select>
+                        </div>
+                        <div class="col">
+                            <label for="latitude">Rebelde 2</label>
+                            <ng-select [items]="countries" bindLabel="name" bindValue="id" placeholder="Select country"
+                                (change)="onChange($event)">
+                            </ng-select>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <label for="latitude">Item 1</label>
+                            <ng-select [items]="countries" bindLabel="name" bindValue="id" placeholder="Select country"
+                                (change)="onChange($event)">
+                            </ng-select>
+                        </div>
+                        <div class="col">
+                            <label for="latitude">Item 2</label>
+                            <ng-select [items]="countries" bindLabel="name" bindValue="id" placeholder="Select country"
+                                (change)="onChange($event)">
+                            </ng-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="latitude">Pontos 1</label>
+                    </div>
+                    <div class="col">
+                        <label for="latitude">Ponos 2</label>
+                    </div>
+                </div>
+                <div class="row pt-4">
+                    <div class="col">
+                        <a class="btn btn-primary" href="#" role="button" [routerLink]="['']">Trocar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6" id="informacao">
+            <div class="row" id="img">
+                <img src="../../../assets/imagens/07.jpg" alt="logo">
+            </div>
+        </div>
+    </div>
+    <div class="row pt-4">
+        <a class="btn btn-primary" href="#" role="button" [routerLink]="['']">Retorno</a>
+    </div>
+</div>
